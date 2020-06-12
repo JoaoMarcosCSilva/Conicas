@@ -163,7 +163,7 @@ def plot(delta, x_range, y_range, resolution, conic, color = 'black'):
 
 delta = 4e-1
 width = 8
-res = 300
+res = 500
 
 if 'parábola' in classify(A, J, H):
     new_J[0] *= 0
@@ -201,6 +201,15 @@ def get_original (rotation, translation, x):
 
 def plot_point (ponto, cor):
     plt.plot(ponto[0], ponto[1], cor + 'o')
+
+def get_parabola(new_A, new_H):
+    plt.subplot(1,2,2)
+    centro = np.array([0, 0]).reshape(-1,1)
+    foco = np.array([0, -1/(4*new_J[1][0]*new_A[0][0])]).reshape(-1,1)
+
+    plot_point(centro, 'b')
+    plot_point(foco, 'r')
+    plot_line(0, 1, -1/(4*new_J[1][0]*new_A[0][0]))
 
 def get_ellipse_or_hyperbola_data(rotation, translation, new_A, new_H):
   print("")
@@ -279,6 +288,9 @@ def get_ellipse_or_hyperbola_data(rotation, translation, new_A, new_H):
   
 if 'parábola' not in classify(A, J, H):
   get_ellipse_or_hyperbola_data(rotation, translation, new_A, new_H)
+
+if 'parábola' in classify(A, J, H):
+    get_parabola(new_A, new_J)
 
 plt.subplot(1,2,2)
 plt.title('Cônica na posição padrão')
