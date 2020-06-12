@@ -65,7 +65,7 @@ def parse(txt):
     
     return conic, A, J, H
 
-conic, A, J, H = parse(input("Escreva a equacao: "))
+conic, A, J, H = parse(input("Escreva a equação: "))
 
 epsilon = 1e-10
 
@@ -95,7 +95,7 @@ def classify(A, J, H):
         
     return txt
 
-print("A conica e uma ", classify(A, J, H))
+print("A cônica é uma ", classify(A, J, H))
 
 def translate_basis(A, J, H):
 
@@ -140,7 +140,7 @@ def rotate_basis(A, J):
 
     return rotation, new_A, new_J
 
-rotation, new_A, new_J = rotate_basis(A, J)
+rotation, new_A, new_J = rotate_basis(A, new_J)
 
 def plot(delta, x_range, y_range, resolution, conic, color = 'black'):
   plt.axhline(0, alpha=.1)
@@ -170,7 +170,7 @@ if 'parábola' in classify(A, J, H):
     new_H *= 0
     new_A[0][0] = np.abs(new_A[0][0])
     new_J[1][0] = -np.abs(new_J[1][0])
-    
+
 new_conic = {
     'x2': new_A[0][0],
     'y2': new_A[1][1],
@@ -179,6 +179,8 @@ new_conic = {
     'xy': new_A[1][0]*2,
     '': new_H
 }
+
+
 
 plt.subplot(1,2,1)
 plt.title('Cônica original')
