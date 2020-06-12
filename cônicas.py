@@ -266,8 +266,6 @@ def get_ellipse_or_hyperbola_data(rotation, translation, new_A, new_H):
   plot_point(tuple(v1.reshape(2)), 'g')
   plot_point(tuple(v2.reshape(2)), 'g')
 
-  print("")
-  print("Assintotas")
 
   center = translation.reshape(2)
 
@@ -275,6 +273,8 @@ def get_ellipse_or_hyperbola_data(rotation, translation, new_A, new_H):
   reta2 = (get_original(rotation, translation, np.array([a/b, -1]).reshape(-1,1)) - translation).reshape(2)
   
   if 'hipérbole' in classify(A, J, H):
+    print("")
+    print("Assintotas")
 
     a = reta1[1]
     b = -reta1[0]
