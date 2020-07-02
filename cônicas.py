@@ -162,7 +162,7 @@ def plot(delta, x_range, y_range, resolution, conic, color = 'black'):
   plt.contour(x, y, evaluate, [0], colors = color)
 
 delta = 4e-1
-width = 8
+width = int(input('Insira o tamanho do grafico: '))
 res = 500
 
 if 'parábola' in classify(A, J, H):
